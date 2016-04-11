@@ -11,15 +11,17 @@ class BinaryTree
     @right = NilTree.new
   end
 
-  def add(opts, me = self, direction = :none)
+  def add(opts)
     new_index = opts[:index]
     new_data = opts[:data]
 
     if new_index < index
-      left.add(opts, self, :left)
+      @left = left.add(opts)
     elsif index < new_index
-      right.add(opts, self, :right)
+      @right = right.add(opts)
     end
+
+    self
   end
 
   def search(new_index)
@@ -34,12 +36,8 @@ class BinaryTree
 end
 
 class NilTree
-  def add(opts, me, direction)
-    if direction == :left
-      me.left = BinaryTree.new(opts)
-    elsif direction == :right
-      me.right = BinaryTree.new(opts)
-    end
+  def add(opts)
+    BinaryTree.new(opts)
   end
 
   def search(new_index)
