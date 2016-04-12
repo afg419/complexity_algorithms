@@ -1,5 +1,5 @@
-#merge_sort runs in O(n*log(n)) where n is length of array
-#merge_two_sorted_arrays runs in O(n) where n is the sum of the lengths of the two arrays
+# merge_sort runs in O(n*log(n)) where n is length of array
+# merge_two_sorted_arrays runs in O(n) where n is the sum of the lengths of the two arrays
 
 def merge_sort(array)
   n = array.length
